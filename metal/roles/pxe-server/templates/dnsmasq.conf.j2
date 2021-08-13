@@ -1,0 +1,6 @@
+no-daemon
+log-debug
+dhcp-range={{ ansible_default_ipv4.gateway }},proxy
+dhcp-boot=tag:efi-x86_64,grubx64.efi
+enable-tftp
+tftp-root=/var/lib/tftpboot

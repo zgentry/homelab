@@ -9,8 +9,10 @@
     state: directory
   loop:
     - "{{ role_path }}/build"
+    - "{{ role_path }}/build/ignition"
+    - "{{ role_path }}/build/livecd"
+    - "{{ role_path }}/build/tftpboot"
     - "{{ role_path }}/files/images"
-    - "{{ role_path }}/build/mnt"
 
 - name: Download ISO
   get_url:
@@ -21,35 +23,35 @@
 
 - name: Extract the ISO
   command:
-    cmd: "xorriso -osirrox on -indev {{ iso.dest }} -extract / {{ role_path }}/build/mnt"
-    creates: "{{ role_path }}/build/mnt/.treeinfo"
+    cmd: "xorriso -osirrox on -indev {{ iso.dest }} -extract / {{ role_path }}/build/livecd"
+    creates: "{{ role_path }}/build/livecd/zipl.prm"
 
 - name: Extract bootloader
   iso_extract:
-    image: "{{ role_path }}/build/mnt/images/efiboot.img"
-    dest: "{{ role_path }}/build/mnt/EFI/fedora"
+    image: "{{ role_path }}/build/livecd/images/efiboot.img"
+    dest: "{{ role_path }}/build/livecd/EFI/fedora"
     files:
       - EFI/fedora/grubx64.efi
 
-- name: Copy configs
-  copy:
-    src: "{{ role_path }}/templates/"
-    dest: "{{ role_path }}/build"
-
-- name: Render DHCP config
+- name: Render docker compose config
   template:
-    src: dhcp/dhcpd.conf.j2
-    dest: "{{ role_path }}/build/dhcp/dhcpd.conf"
+    src: docker-compose.yml
+    dest: "{{ role_path }}/build/docker-compose.yml"
+
+- name: Render dnsmasq config
+  template:
+    src: dnsmasq.conf.j2
+    dest: "{{ role_path }}/build/dnsmasq.conf"
 
 - name: Render GRUB config
   template:
-    src: tftp/tftpboot/grub.cfg.j2
-    dest: "{{ role_path }}/build/tftp/tftpboot/grub.cfg"
+    src: grub.cfg.j2
+    dest: "{{ role_path }}/build/tftpboot/grub.cfg"
 
 - name: Render machine specific Butane config
   template:
-    src: http/ignition/ignition.yaml.j2
-    dest: "{{ role_path }}/build/http/ignition/{{ hostvars[item]['mac'] }}.yaml"
+    src: ignition.yaml.j2
+    dest: "{{ role_path }}/build/ignition/{{ hostvars[item]['mac'] }}.yaml"
   loop: "{{ groups['metal'] }}"
 
 - name: Render Ignition config from Butane config
@@ -58,7 +60,7 @@
     image: quay.io/coreos/butane:release
     auto_remove: yes
     volumes:
-      - "{{ role_path }}/build/http/ignition:/local/src"
+      - "{{ role_path }}/build/ignition:/local/src"
     working_dir: /local/src
     command:
       - --pretty
