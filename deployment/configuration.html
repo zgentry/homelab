@@ -183,6 +183,9 @@ network_interface: &quot;eno1&quot;
 <li>Network interface: usually it's <code>eth0</code>, mine is <code>eno1</code></li>
 </ul>
 <h2 id="update-ingresses-to-point-to-your-domain"><a class="header" href="#update-ingresses-to-point-to-your-domain">Update Ingresses to point to your domain</a></h2>
+<blockquote>
+<p>Use <a href="https://datatracker.ietf.org/doc/html/rfc8375"><code>home.arpa</code></a> if you don't have a domain</p>
+</blockquote>
 <p>My domain is <code>khuedoan.com</code>, run the following command to replace it with yours:</p>
 <pre><code class="language-sh">./scripts/replace-domain &quot;yourdomain.com&quot;
 </code></pre>

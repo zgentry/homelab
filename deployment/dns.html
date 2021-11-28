@@ -141,14 +141,30 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="dns-setup"><a class="header" href="#dns-setup">DNS setup</a></h1>
-<p>Because everyone DNS setup is different, DNS automation is not in the scope of the project.</p>
-<p>Some options for DNS config:</p>
+<p>Because everyone DNS setup are different, DNS automation is not in the scope of the project.</p>
+<p>Some options for DNS config (choose one):</p>
 <ul>
+<li>Update the <code>/etc/hosts</code> file (suitable for a test environment)</li>
 <li>Change the DNS config in your router</li>
-<li>Run your own DNS server in the cluster</li>
-<li>Change the DNS config in your domain registrar</li>
+<li>Change the DNS config at your domain registrar (doesn't work with the <a href="https://datatracker.ietf.org/doc/html/rfc8375"><code>home.arpa</code></a> domain)</li>
 </ul>
-<p>For example here is my set up using the third option with Cloudflare, automated using Terraform:</p>
+<p>Before continuing to the next section for some examples, run this command to get a list of subdomain and its address:</p>
+<pre><code class="language-sh">./scripts/get-dns-config
+</code></pre>
+<h2 id="update-etchosts"><a class="header" href="#update-etchosts">Update <code>/etc/hosts</code></a></h2>
+<p>You paste the output from the command above directly to your <code>/etc/hosts</code> file like this:</p>
+<pre><code># Static table lookup for hostnames.
+# See hosts(5) for details.
+
+192.168.1.150 argocd.mydomain.com
+192.168.1.150 git.mydomain.com
+192.168.1.150 jellyfin.mydomain.com
+# etc.
+</code></pre>
+<h2 id="in-your-router"><a class="header" href="#in-your-router">In your router</a></h2>
+<p>You can add each subdomain one by one like the previous method, or use a wildcard <code>*.mydomain.com</code> and point it to the IP address of the load blancer (from the output of the previous command)</p>
+<h2 id="at-your-domain-registrar"><a class="header" href="#at-your-domain-registrar">At your domain registrar</a></h2>
+<p>For example here is my set up for Cloudflare, automated using Terraform:</p>
 <pre><code class="language-hcl">resource &quot;cloudflare_record&quot; &quot;homelab_records&quot; {
   for_each = toset([
     &quot;*.knative&quot;,

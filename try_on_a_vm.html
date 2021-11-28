@@ -156,16 +156,7 @@ ip_prefix = '192.168.1.'
 <pre><code class="language-sh">make -C metal dev
 make bootstrap
 </code></pre>
-<p>Get the Ingress addresses and IPs:</p>
-<pre><code class="language-sh">export KUBECONFIG=$PWD/metal/kubeconfig.yaml
-kubectl get ingress -A
-</code></pre>
-<p>Then update your <code>/etc/hosts</code> or your router DNS config based on the output:</p>
-<pre><code>192.168.1.150 argocd.mydomain.com
-192.168.1.150 git.mydomain.com
-192.168.1.150 jellyfin.mydomain.com
-# etc.
-</code></pre>
+<p>Finally follow the <a href="./deployment/dns.html">DNS guide</a> to update your DNS setup (the easiest one is the <code>/etc/hosts</code> option)</p>
 <h2 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h2>
 <p>Shut down the VM:</p>
 <pre><code class="language-sh">cd metal
