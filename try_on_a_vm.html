@@ -148,7 +148,11 @@
 <li><code>vagrant</code></li>
 </ul>
 <h2 id="build"><a class="header" href="#build">Build</a></h2>
-<p>Follow the <a href="./deployment/configuration.html">configuration guide</a>, then build the cluster and bootstrap it:</p>
+<p>Change the IP prefix in the Vagrant config to match your LAN setup, for example my IP prefix is <code>192.168.1.</code>:</p>
+<pre><code class="language-ruby"># metal/Vagrantfile
+ip_prefix = '192.168.1.'
+</code></pre>
+<p>Follow the remaining steps in the <a href="./deployment/configuration.html">configuration guide</a>, then build the cluster and bootstrap it:</p>
 <pre><code class="language-sh">make -C metal dev
 make bootstrap
 </code></pre>

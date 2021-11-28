@@ -170,6 +170,8 @@
 <li>All servers must be connected to the same <strong>wired</strong> network with the initial controller (Wifi is untested, please let me know if it works)</li>
 <li>You have the access to change DNS config (on your router or at your domain registrar)</li>
 </ul>
+<h2 id="domain"><a class="header" href="#domain">Domain</a></h2>
+<p>Buying a domain is highly recommended, but if you don't have one, you can also update your router config and point <a href="https://datatracker.ietf.org/doc/html/rfc8375"><code>*.home.arpa</code></a> to the load balancer (more on that later).</p>
 <h2 id="bios-setup"><a class="header" href="#bios-setup">BIOS setup</a></h2>
 <blockquote>
 <p>You need to do it once per machine if the default config is not sufficent,
@@ -202,7 +204,7 @@ usually for consumer hardware this can not be automated
     }
 }
 </code></pre>
-<h2 id="gather-the-information"><a class="header" href="#gather-the-information">Gather the information</a></h2>
+<h2 id="gather-information"><a class="header" href="#gather-information">Gather information</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
 MAC address for each machine</li>
