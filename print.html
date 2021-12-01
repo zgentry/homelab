@@ -219,9 +219,7 @@
 ip_prefix = '192.168.1.'
 </code></pre>
 <p>Follow the <strong>remaining steps in the <a href="./deployment/configuration.html">configuration guide</a></strong>, then create a test VM:</p>
-<pre><code class="language-sh">cd metal
-vagrant up
-cd ..
+<pre><code class="language-sh">VAGRANT_CWD=./metal vagrant up
 </code></pre>
 <p>Open the tools container:</p>
 <pre><code class="language-sh">make tools
