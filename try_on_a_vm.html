@@ -144,17 +144,26 @@
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
 <p>Install the following packages:</p>
 <ul>
-<li><code>virtualbox</code></li>
+<li><code>docker</code></li>
+<li><code>make</code></li>
 <li><code>vagrant</code></li>
+<li><code>virtualbox</code></li>
 </ul>
 <h2 id="build"><a class="header" href="#build">Build</a></h2>
 <p>Change the IP prefix in the Vagrant config to match your LAN setup, for example my IP prefix is <code>192.168.1.</code>:</p>
 <pre><code class="language-ruby"># metal/Vagrantfile
 ip_prefix = '192.168.1.'
 </code></pre>
-<p>Follow the remaining steps in the <a href="./deployment/configuration.html">configuration guide</a>, then build the cluster and bootstrap it:</p>
-<pre><code class="language-sh">make -C metal dev
-make bootstrap
+<p>Follow the <strong>remaining steps in the <a href="./deployment/configuration.html">configuration guide</a></strong>, then create a test VM:</p>
+<pre><code class="language-sh">cd metal
+vagrant up
+cd ..
+</code></pre>
+<p>Open the tools container:</p>
+<pre><code class="language-sh">make tools
+</code></pre>
+<p>Build a cluster on the test VM and bootstrap it:</p>
+<pre><code>make dev
 </code></pre>
 <p>Finally follow the <a href="./deployment/dns.html">DNS guide</a> to update your DNS setup (the easiest one is the <code>/etc/hosts</code> option)</p>
 <h2 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h2>
