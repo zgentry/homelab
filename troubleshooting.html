@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - Khue&#x27;s Homelab</title>
+        <title>Troubleshooting - Khue&#x27;s Homelab</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html" class="active"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="try_on_a_vm.html"><strong aria-hidden="true">2.</strong> Try on a VM</a></li><li class="chapter-item expanded "><a href="deployment/index.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="deployment/provisioning_flow.html"><strong aria-hidden="true">3.1.</strong> Provisioning flow</a></li><li class="chapter-item expanded "><a href="deployment/prerequisites.html"><strong aria-hidden="true">3.2.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="deployment/configuration.html"><strong aria-hidden="true">3.3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="deployment/deployment.html"><strong aria-hidden="true">3.4.</strong> Deploy the homelab</a></li><li class="chapter-item expanded "><a href="deployment/dns.html"><strong aria-hidden="true">3.5.</strong> DNS setup</a></li></ol></li><li class="chapter-item expanded "><a href="troubleshooting.html"><strong aria-hidden="true">4.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">5.</strong> Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Architecture</div></li><li class="chapter-item expanded "><a href="reference/faq.html"><strong aria-hidden="true">5.2.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="reference/contributors.html"><strong aria-hidden="true">5.3.</strong> Contributors</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">7.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="license.html"><strong aria-hidden="true">8.</strong> License</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="try_on_a_vm.html"><strong aria-hidden="true">2.</strong> Try on a VM</a></li><li class="chapter-item expanded "><a href="deployment/index.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="deployment/provisioning_flow.html"><strong aria-hidden="true">3.1.</strong> Provisioning flow</a></li><li class="chapter-item expanded "><a href="deployment/prerequisites.html"><strong aria-hidden="true">3.2.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="deployment/configuration.html"><strong aria-hidden="true">3.3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="deployment/deployment.html"><strong aria-hidden="true">3.4.</strong> Deploy the homelab</a></li><li class="chapter-item expanded "><a href="deployment/dns.html"><strong aria-hidden="true">3.5.</strong> DNS setup</a></li></ol></li><li class="chapter-item expanded "><a href="troubleshooting.html" class="active"><strong aria-hidden="true">4.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">5.</strong> Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Architecture</div></li><li class="chapter-item expanded "><a href="reference/faq.html"><strong aria-hidden="true">5.2.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="reference/contributors.html"><strong aria-hidden="true">5.3.</strong> Contributors</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">7.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="license.html"><strong aria-hidden="true">8.</strong> License</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -113,7 +113,7 @@
                         <a href="https://github.com/khuedoan/homelab" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/khuedoan/homelab/edit/master/docs/src/introduction.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/khuedoan/homelab/edit/master/docs/src/troubleshooting.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
                     </div>
@@ -140,77 +140,30 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="homelab"><a class="header" href="#homelab">Homelab</a></h1>
-<pre><code class="language-diff">! ⚠️ WORK IN PROGRESS
+                        <h1 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h1>
+<h2 id="pxe-server-logs"><a class="header" href="#pxe-server-logs">PXE server logs</a></h2>
+<p>To view PXE server (includes DHCP, TFTP and HTTP server) logs:</p>
+<pre><code class="language-sh">./scripts/pxe-logs
 </code></pre>
-<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
-<h3 id="hardware"><a class="header" href="#hardware">Hardware</a></h3>
-<p><img src="https://user-images.githubusercontent.com/27996771/98970963-25137200-2543-11eb-8f2d-f9a2d45756ef.JPG" alt="Hardware" /></p>
+<h2 id="nodes-not-booting-from-the-network"><a class="header" href="#nodes-not-booting-from-the-network">Nodes not booting from the network</a></h2>
 <ul>
-<li>4 nodes of NEC SFF <code>PC-MK26ECZDR</code> (Japanese version of the ThinkCentre M700):
-<ul>
-<li>CPU: <code>Intel Core i5-6600T @ 2.70GHz</code></li>
-<li>RAM: <code>16GB</code></li>
-<li>SSD: <code>128GB</code></li>
+<li>Plug a monitor and a keyboard to one of the bare metal node if possible to make the debugging process easier</li>
+<li>Check if the controller (PXE server) is on the same subnet with bare metal nodes (sometimes Wifi will not work or conflict with wired Ethernet, try to turn it off)</li>
+<li>Check if bare metal nodes are configured to boot from the network</li>
+<li>Check if Wake-on-LAN is enabled</li>
+<li>Check if the operating system ISO file is mounted</li>
+<li>Check the controller firewall config</li>
+<li>Check PXE server Docker logs</li>
 </ul>
-</li>
-<li>TP-Link <code>TL-SG108</code> switch:
-<ul>
-<li>Ports: <code>8</code></li>
-<li>Speed: <code>1000Mbps</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="technology-stack"><a class="header" href="#technology-stack">Technology stack</a></h3>
-<table>
-  <tr>
-    <td align="center"><a><img src="https://simpleicons.org/icons/ansible.svg" width="50px;"/><br/>Ansible</td>
-    <td align="center"><a><img src="https://www.docker.com/sites/default/files/d8/2019-07/Moby-logo.png" width="50px;"/><br/>Docker</td>
-    <td align="center"><a><img src="https://avatars.githubusercontent.com/u/75713131?s=200&v=4" width="50px;"/><br/>Rocky Linux</td>
-    <td align="center"><a><img src="https://cncf-branding.netlify.app/img/projects/k3s/icon/color/k3s-icon-color.svg" width="50px;"/><br/>K3s</td>
-    <td align="center"><a><img src="https://cncf-branding.netlify.app/img/projects/kubernetes/icon/color/kubernetes-icon-color.svg" width="50px;"/><br/>Kubernetes</td>
-  </tr>
-  <tr>
-    <td align="center"><a><img src="https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.svg" width="50px;"/><br/>ArgoCD</td>
-    <td align="center"><a><img src="https://cncf-branding.netlify.app/img/projects/helm/icon/color/helm-icon-color.svg" width="50px;"/><br/>Helm</td>
-    <td align="center"><a><img src="https://cncf-branding.netlify.app/img/projects/longhorn/icon/color/longhorn-icon-color.svg" width="50px;"/><br/>Longhorn</td>
-    <td align="center"><a><img src="https://cncf-branding.netlify.app/img/projects/prometheus/icon/color/prometheus-icon-color.svg" width="50px;"/><br/>Prometheus</td>
-    <td align="center"><a><img src="https://simpleicons.org/icons/vault.svg" width="50px;"/><br/>Vault</td>
-  </tr>
-  <tr>
-    <td align="center"><a><img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Gitea_Logo.svg" width="50px;"/><br/>Gitea</td>
-    <td align="center"><a><img src="https://avatars.githubusercontent.com/u/47602533?s=200&v=4" width="50px;"/><br/>Tekton</td>
-    <td align="center"><a><img src="https://knative.dev/docs/images/logo/rgb/knative-logo-rgb.png" width="50px;"/><br/>Knative</td>
-  </tr>
-</table>
-<p><em>This list might be outdated, please let me know if I forgot to update it.</em></p>
-<h2 id="get-started"><a class="header" href="#get-started">Get Started</a></h2>
-<ul>
-<li><a href="https://homelab.khuedoan.com/try_on_a_vm">Try it out on a VM</a> without any hardware</li>
-<li><a href="https://homelab.khuedoan.com/deployment">Deploy on real hardware</a> for real workload</li>
-</ul>
-<h2 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h2>
-<p>See <a href="https://homelab.khuedoan.com/roadmap">roadmap</a> and <a href="https://github.com/khuedoan/homelab/issues">open issues</a> for a list of proposed features and known issues.</p>
-<h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
-<p>Any contributions you make are greatly appreciated (feature, bug fix, documentation, grammar or typo fix...).</p>
-<h2 id="license"><a class="header" href="#license">License</a></h2>
-<p>Distributed under the GPLv3 License. See <code>LICENSE</code> for more information.</p>
-<h2 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h2>
-<ul>
-<li>ArgoCD usage in <a href="https://github.com/locmai/humble">my coworker's homelab</a></li>
-<li><a href="https://github.com/othneildrew/Best-README-Template">README template</a></li>
-<li><a href="https://developers.cloudflare.com/cloudflare-one/tutorials/many-cfd-one-tunnel">Run the same Cloudflare Tunnel across many <code>cloudflared</code> processes</a></li>
-<li><a href="https://askubuntu.com/questions/1272400/how-do-i-automate-network-installation-of-many-ubuntu-18-04-systems-with-efi-and">MAC address environment variable in GRUB config</a></li>
-<li><a href="https://github.com/k3s-io/k3s/blob/master/k3s.service">Official k3s systemd service file</a></li>
-</ul>
-<h2 id="stargazers-over-time"><a class="header" href="#stargazers-over-time">Stargazers over time</a></h2>
-<p><a href="https://starchart.cc/khuedoan/homelab"><img src="https://starchart.cc/khuedoan/homelab.svg" alt="Stargazers over time" /></a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="next" href="try_on_a_vm.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="prev" href="deployment/dns.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="reference/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -219,7 +172,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="next" href="try_on_a_vm.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="prev" href="deployment/dns.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="reference/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
