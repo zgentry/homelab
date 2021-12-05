@@ -200,7 +200,6 @@
 <li><a href="https://developers.cloudflare.com/cloudflare-one/tutorials/many-cfd-one-tunnel">Run the same Cloudflare Tunnel across many <code>cloudflared</code> processes</a></li>
 <li><a href="https://askubuntu.com/questions/1272400/how-do-i-automate-network-installation-of-many-ubuntu-18-04-systems-with-efi-and">MAC address environment variable in GRUB config</a></li>
 <li><a href="https://github.com/k3s-io/k3s/blob/master/k3s.service">Official k3s systemd service file</a></li>
-<li><a href="https://aws.amazon.com/blogs/containers/using-dex-dex-k8s-authenticator-to-authenticate-to-amazon-eks/">AWS Dex setup guide on EKS</a></li>
 </ul>
 <h2 id="stargazers-over-time"><a class="header" href="#stargazers-over-time">Stargazers over time</a></h2>
 <p><a href="https://starchart.cc/khuedoan/homelab"><img src="https://starchart.cc/khuedoan/homelab.svg" alt="Stargazers over time" /></a></p>
@@ -403,9 +402,13 @@ network_interface: &quot;eno1&quot;
 <p>Build the lab:</p>
 <pre><code class="language-sh">make
 </code></pre>
-<p>Yes it's that simple! Continue to the next section to update your DNS before you can access the home page at <a href="https://home.example.com">https://home.example.com</a>.</p>
+<p>Yes it's that simple! Check the status using the following command:</p>
+<pre><code class="language-sh">./scripts/get-status
+</code></pre>
+<p>While waiting for all services to become healthy, continue to the next section to update your DNS.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dns-setup"><a class="header" href="#dns-setup">DNS setup</a></h1>
-<p>Because everyone DNS setup are different, DNS automation is not in the scope of the project.</p>
+<p>Before you can access the home page at <a href="https://home.example.com">https://home.example.com</a>, you'll need to update your DNS config.
+Because everyone DNS setup are different, DNS automation is not in the scope of the project.</p>
 <p>Some options for DNS config (choose one):</p>
 <ul>
 <li>Update the <code>/etc/hosts</code> file (suitable for a test environment)</li>
@@ -433,7 +436,6 @@ network_interface: &quot;eno1&quot;
   for_each = toset([
     &quot;*.knative&quot;,
     &quot;argocd&quot;,
-    &quot;dex&quot;,
     &quot;git&quot;,
     &quot;grafana&quot;,
     &quot;tekton&quot;,
