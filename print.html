@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="try_on_a_vm.html"><strong aria-hidden="true">2.</strong> Try on a VM</a></li><li class="chapter-item expanded "><a href="deployment/index.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="deployment/provisioning_flow.html"><strong aria-hidden="true">3.1.</strong> Provisioning flow</a></li><li class="chapter-item expanded "><a href="deployment/prerequisites.html"><strong aria-hidden="true">3.2.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="deployment/configuration.html"><strong aria-hidden="true">3.3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="deployment/deployment.html"><strong aria-hidden="true">3.4.</strong> Deploy the homelab</a></li><li class="chapter-item expanded "><a href="deployment/dns.html"><strong aria-hidden="true">3.5.</strong> DNS setup</a></li></ol></li><li class="chapter-item expanded "><a href="troubleshooting.html"><strong aria-hidden="true">4.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">5.</strong> Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Architecture</div></li><li class="chapter-item expanded "><a href="reference/faq.html"><strong aria-hidden="true">5.2.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="reference/contributors.html"><strong aria-hidden="true">5.3.</strong> Contributors</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">7.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="license.html"><strong aria-hidden="true">8.</strong> License</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="try_on_a_vm.html"><strong aria-hidden="true">2.</strong> Try on a VM</a></li><li class="chapter-item expanded "><a href="deployment/index.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="deployment/provisioning_flow.html"><strong aria-hidden="true">3.1.</strong> Provisioning flow</a></li><li class="chapter-item expanded "><a href="deployment/prerequisites.html"><strong aria-hidden="true">3.2.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="deployment/configuration.html"><strong aria-hidden="true">3.3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="deployment/deployment.html"><strong aria-hidden="true">3.4.</strong> Deploy the homelab</a></li><li class="chapter-item expanded "><a href="deployment/dns.html"><strong aria-hidden="true">3.5.</strong> DNS setup</a></li><li class="chapter-item expanded "><a href="deployment/external_resources.html"><strong aria-hidden="true">3.6.</strong> External resources (optional)</a></li></ol></li><li class="chapter-item expanded "><a href="troubleshooting.html"><strong aria-hidden="true">4.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">5.</strong> Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Architecture</div></li><li class="chapter-item expanded "><a href="reference/faq.html"><strong aria-hidden="true">5.2.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="reference/contributors.html"><strong aria-hidden="true">5.3.</strong> Contributors</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">7.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="license.html"><strong aria-hidden="true">8.</strong> License</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -164,7 +164,7 @@ ip_prefix = '192.168.1.'
 <p>Build a cluster on the test VM and bootstrap it:</p>
 <pre><code>make dev
 </code></pre>
-<p>Finally follow the <a href="./deployment/dns.html">DNS guide</a> to update your DNS setup (the easiest one is the <code>/etc/hosts</code> option)</p>
+<p>Finally follow the <a href="./deployment/dns.html">DNS guide</a> to update your DNS setup (the easiest one is the nip.io option)</p>
 <p>Now you can visit the dashboard at <a href="https://home.example.com">https://home.example.com</a></p>
 <h2 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h2>
 <p>Shut down the VM:</p>
@@ -349,44 +349,89 @@ network_interface: &quot;eno1&quot;
 Because everyone DNS setup are different, DNS automation is not in the scope of the project.</p>
 <p>Some options for DNS config (choose one):</p>
 <ul>
-<li>Update the <code>/etc/hosts</code> file (suitable for a test environment)</li>
+<li>Use nip.io (suitable for a test environment)</li>
 <li>Change the DNS config in your router</li>
 <li>Change the DNS config at your domain registrar (doesn't work with the <a href="https://datatracker.ietf.org/doc/html/rfc8375"><code>home.arpa</code></a> domain)</li>
 </ul>
 <p>Before continuing to the next section for some examples, run this command to get a list of subdomain and its address:</p>
 <pre><code class="language-sh">./scripts/get-dns-config
 </code></pre>
-<h2 id="update-etchosts"><a class="header" href="#update-etchosts">Update <code>/etc/hosts</code></a></h2>
-<p>You paste the output from the command above directly to your <code>/etc/hosts</code> file like this:</p>
-<pre><code># Static table lookup for hostnames.
-# See hosts(5) for details.
-
-192.168.1.150 argocd.example.com
-192.168.1.150 git.example.com
-192.168.1.150 jellyfin.example.com
-# etc.
-</code></pre>
+<h2 id="use-nipio"><a class="header" href="#use-nipio">Use nip.io</a></h2>
+<p>TODO</p>
 <h2 id="in-your-router"><a class="header" href="#in-your-router">In your router</a></h2>
 <p>You can add each subdomain one by one like the previous method, or use a wildcard <code>*.example.com</code> and point it to the IP address of the load blancer (from the output of the previous command)</p>
 <h2 id="at-your-domain-registrar"><a class="header" href="#at-your-domain-registrar">At your domain registrar</a></h2>
-<p>For example here is my set up for Cloudflare, automated using Terraform:</p>
-<pre><code class="language-hcl">resource &quot;cloudflare_record&quot; &quot;homelab_records&quot; {
-  for_each = toset([
-    &quot;*.knative&quot;,
-    &quot;argocd&quot;,
-    &quot;git&quot;,
-    &quot;grafana&quot;,
-    &quot;tekton&quot;,
-    &quot;vault&quot;,
-    # etc.
-  ])
+<p>I'm using Cloudflare for DNS, continue to the next section for more information.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="external-resources"><a class="header" href="#external-resources">External resources</a></h1>
+<p><strong>WIP documents</strong></p>
+<blockquote>
+<p>These resources are optional, the homelab still works without them but will lack some features like trusted certificates and offsite backup</p>
+</blockquote>
+<p>Although I try to keep the amount of external resources to the minimum, there's still need for a few of them.
+Below is a list of external resources and why we need them.</p>
+<ul>
+<li>Terraform Cloud:
+<ul>
+<li>Workspace to store the state for external resources</li>
+</ul>
+</li>
+<li>Cloudflare:
+<ul>
+<li>DNS</li>
+<li>DNS-01 challenge for Let's Encrypt</li>
+<li>Tunnel to public services to the internet without port-forwarding</li>
+</ul>
+</li>
+<li>Backblaze:
+<ul>
+<li>B2 storage with S3 compatible API for offsite backup</li>
+</ul>
+</li>
+</ul>
+<p>This layer will deploy resources that require external dependencies using the following provisioners:</p>
+<ul>
+<li>Terraform:
+<ul>
+<li>Create external resources</li>
+<li>Add external secrets to namespaces</li>
+<li>Create an ApplicationSet</li>
+</ul>
+</li>
+<li>ArgoCD (via the ApplicationSet created by Terraform):
+<ul>
+<li>Deploy Helm charts in the subdirectories</li>
+</ul>
+</li>
+</ul>
+<h2 id="prerequisites-2"><a class="header" href="#prerequisites-2">Prerequisites</a></h2>
+<h3 id="create-terraform-workspace"><a class="header" href="#create-terraform-workspace">Create Terraform workspace</a></h3>
+<p>TODO</p>
+<h3 id="create-cloudflare-api-token"><a class="header" href="#create-cloudflare-api-token">Create Cloudflare API token</a></h3>
+<p><a href="https://dash.cloudflare.com/profile/api-tokens">https://dash.cloudflare.com/profile/api-tokens</a></p>
+<p>Terraform API token summary:</p>
+<pre><code>This API token will affect the below accounts and zones, along with their respective permissions
 
-  zone_id = cloudflare_zone.khuedoan_com.id
-  type    = &quot;A&quot;
-  name    = each.key
-  value   = &quot;192.168.1.150&quot; # NGINX LoadBalancer IP
-  ttl     = 1 # Auto
-}
+└── Khue Doan - Argo Tunnel:Edit, Account Settings:Read
+    └── khuedoan.com - Zone:Read, DNS:Edit
+
+Client IP Address Filtering
+
+└── Is in - 117.xxx.xxx.xxx, 2402:xxx:xxx:xxx:xxx:xxx:xxx:xxx
+</code></pre>
+<h3 id="create-backblaze-api-key"><a class="header" href="#create-backblaze-api-key">Create Backblaze API key</a></h3>
+<p><a href="https://secure.backblaze.com/app_keys.htm">https://secure.backblaze.com/app_keys.htm</a></p>
+<pre><code>Name of Key: Homelab
+Allow access to Bucket(s): All
+Type of Access: Read and Write
+</code></pre>
+<h2 id="deploy"><a class="header" href="#deploy">Deploy</a></h2>
+<p>Export environment variables for API keys:</p>
+<pre><code class="language-sh">export CLOUDFLARE_API_TOKEN=xxx
+export B2_APPLICATION_KEY_ID=xxx
+export B2_APPLICATION_KEY=xxx
+</code></pre>
+<p>Apply Terraform:</p>
+<pre><code class="language-sh">make
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h1>
 <h2 id="pxe-server-logs"><a class="header" href="#pxe-server-logs">PXE server logs</a></h2>
@@ -418,6 +463,16 @@ The Ansible set up in <code>./metal</code> is idempotent and will start the PXE 
 </ul>
 <p>If you feel you're missing from this list, feel free to add yourself in a PR.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changelog"><a class="header" href="#changelog">Changelog</a></h1>
+<h2 id="006-alpha"><a class="header" href="#006-alpha">0.0.6-alpha</a></h2>
+<ul>
+<li>Support external reosources:
+<ul>
+<li>Cloudflare DNS and Tunnel</li>
+<li>Backblaze backup</li>
+</ul>
+</li>
+<li>Replace self-signed certificates with Let's Encrypt</li>
+</ul>
 <h2 id="005-alpha"><a class="header" href="#005-alpha">0.0.5-alpha</a></h2>
 <ul>
 <li>Add convenience scripts</li>

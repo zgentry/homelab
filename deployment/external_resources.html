@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Prerequisites - Khue&#x27;s Homelab</title>
+        <title>External resources (optional) - Khue&#x27;s Homelab</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../try_on_a_vm.html"><strong aria-hidden="true">2.</strong> Try on a VM</a></li><li class="chapter-item expanded "><a href="../deployment/index.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../deployment/provisioning_flow.html"><strong aria-hidden="true">3.1.</strong> Provisioning flow</a></li><li class="chapter-item expanded "><a href="../deployment/prerequisites.html" class="active"><strong aria-hidden="true">3.2.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="../deployment/configuration.html"><strong aria-hidden="true">3.3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="../deployment/deployment.html"><strong aria-hidden="true">3.4.</strong> Deploy the homelab</a></li><li class="chapter-item expanded "><a href="../deployment/dns.html"><strong aria-hidden="true">3.5.</strong> DNS setup</a></li><li class="chapter-item expanded "><a href="../deployment/external_resources.html"><strong aria-hidden="true">3.6.</strong> External resources (optional)</a></li></ol></li><li class="chapter-item expanded "><a href="../troubleshooting.html"><strong aria-hidden="true">4.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">5.</strong> Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Architecture</div></li><li class="chapter-item expanded "><a href="../reference/faq.html"><strong aria-hidden="true">5.2.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="../reference/contributors.html"><strong aria-hidden="true">5.3.</strong> Contributors</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="../roadmap.html"><strong aria-hidden="true">7.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="../license.html"><strong aria-hidden="true">8.</strong> License</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../try_on_a_vm.html"><strong aria-hidden="true">2.</strong> Try on a VM</a></li><li class="chapter-item expanded "><a href="../deployment/index.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../deployment/provisioning_flow.html"><strong aria-hidden="true">3.1.</strong> Provisioning flow</a></li><li class="chapter-item expanded "><a href="../deployment/prerequisites.html"><strong aria-hidden="true">3.2.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="../deployment/configuration.html"><strong aria-hidden="true">3.3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="../deployment/deployment.html"><strong aria-hidden="true">3.4.</strong> Deploy the homelab</a></li><li class="chapter-item expanded "><a href="../deployment/dns.html"><strong aria-hidden="true">3.5.</strong> DNS setup</a></li><li class="chapter-item expanded "><a href="../deployment/external_resources.html" class="active"><strong aria-hidden="true">3.6.</strong> External resources (optional)</a></li></ol></li><li class="chapter-item expanded "><a href="../troubleshooting.html"><strong aria-hidden="true">4.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">5.</strong> Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Architecture</div></li><li class="chapter-item expanded "><a href="../reference/faq.html"><strong aria-hidden="true">5.2.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="../reference/contributors.html"><strong aria-hidden="true">5.3.</strong> Contributors</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="../roadmap.html"><strong aria-hidden="true">7.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="../license.html"><strong aria-hidden="true">8.</strong> License</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -113,7 +113,7 @@
                         <a href="https://github.com/khuedoan/homelab" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/khuedoan/homelab/edit/master/docs/src/deployment/prerequisites.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/khuedoan/homelab/edit/master/docs/src/deployment/external_resources.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
                     </div>
@@ -140,90 +140,86 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
-<h2 id="hardware-requirements"><a class="header" href="#hardware-requirements">Hardware requirements</a></h2>
-<h3 id="initial-controller"><a class="header" href="#initial-controller">Initial controller</a></h3>
+                        <h1 id="external-resources"><a class="header" href="#external-resources">External resources</a></h1>
+<p><strong>WIP documents</strong></p>
 <blockquote>
-<p>The initial controller is the machine used to bootstrap the cluster, we only need it once, you can use your laptop or desktop</p>
+<p>These resources are optional, the homelab still works without them but will lack some features like trusted certificates and offsite backup</p>
 </blockquote>
+<p>Although I try to keep the amount of external resources to the minimum, there's still need for a few of them.
+Below is a list of external resources and why we need them.</p>
 <ul>
-<li>Any machine that can run Docker with the <code>host</code> networking driver (<a href="https://docs.docker.com/network/host/">which means only Docker on Linux hosts</a>, you can use a Linux virtual machine with bridged networking if you're on macOS or Windows)</li>
-</ul>
-<h3 id="servers"><a class="header" href="#servers">Servers</a></h3>
-<p>Any modern <code>x86_64</code> computer(s) should work, you can use old PCs, laptops or servers.</p>
-<blockquote>
-<p>This is the requirements for <em>each</em> node</p>
-</blockquote>
-<table><thead><tr><th>Component</th><th>Minimum</th><th>Recommended</th></tr></thead><tbody>
-<tr><td>CPU</td><td>2 cores</td><td>4 cores</td></tr>
-<tr><td>RAM</td><td>8 GB</td><td>16 GB</td></tr>
-<tr><td>Hard drive</td><td>128 GB</td><td>512 GB (depending on your storage usage, the base installation will not use more than 128GB)</td></tr>
-<tr><td>Node count</td><td>1</td><td>3 or more for high availability</td></tr>
-</tbody></table>
-<p>Additional capabilities:</p>
+<li>Terraform Cloud:
 <ul>
-<li>Ability to boot from the network (PXE boot)</li>
-<li>Wake-on-LAN capability, used to wake the machines up automatically without physically touching the power button</li>
+<li>Workspace to store the state for external resources</li>
 </ul>
-<h3 id="network-setup"><a class="header" href="#network-setup">Network setup</a></h3>
+</li>
+<li>Cloudflare:
 <ul>
-<li>All servers must be connected to the same <strong>wired</strong> network with the initial controller (Wifi is untested, please let me know if it works)</li>
-<li>You have the access to change DNS config (on your router or at your domain registrar)</li>
+<li>DNS</li>
+<li>DNS-01 challenge for Let's Encrypt</li>
+<li>Tunnel to public services to the internet without port-forwarding</li>
 </ul>
-<h2 id="domain"><a class="header" href="#domain">Domain</a></h2>
-<p>Buying a domain is highly recommended, but if you don't have one, you can also update your router config and point <a href="https://datatracker.ietf.org/doc/html/rfc8375"><code>*.home.arpa</code></a> to the load balancer (more on that later).</p>
-<h2 id="bios-setup"><a class="header" href="#bios-setup">BIOS setup</a></h2>
-<blockquote>
-<p>You need to do it once per machine if the default config is not sufficent,
-usually for consumer hardware this can not be automated
-(it requires something like <a href="https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface">IPMI</a> to automate).</p>
-</blockquote>
-<p>Below is my BIOS setup, your motherboard may have a different name for the options, so you'll need to adapt it with your hardware.</p>
-<pre><code class="language-json">{
-    &quot;Devices&quot;: {
-        &quot;Network Setup&quot;: {
-            &quot;PXE IPv4&quot;: true,
-            &quot;PXE IPv6&quot;: false
-        }
-    },
-    &quot;Advanced&quot;: {
-        &quot;CPU Setup&quot;: {
-            &quot;VT-d&quot;: true
-        }
-    },
-    &quot;Power&quot;: {
-        &quot;Automatic Power On&quot;: {
-            &quot;WoL&quot;: &quot;Automatic&quot;
-        }
-    },
-    &quot;Security&quot;: {
-        &quot;Secure Boot&quot;: false
-    },
-    &quot;Startup&quot;: {
-        &quot;CSM&quot;: false
-    }
-}
+</li>
+<li>Backblaze:
+<ul>
+<li>B2 storage with S3 compatible API for offsite backup</li>
+</ul>
+</li>
+</ul>
+<p>This layer will deploy resources that require external dependencies using the following provisioners:</p>
+<ul>
+<li>Terraform:
+<ul>
+<li>Create external resources</li>
+<li>Add external secrets to namespaces</li>
+<li>Create an ApplicationSet</li>
+</ul>
+</li>
+<li>ArgoCD (via the ApplicationSet created by Terraform):
+<ul>
+<li>Deploy Helm charts in the subdirectories</li>
+</ul>
+</li>
+</ul>
+<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<h3 id="create-terraform-workspace"><a class="header" href="#create-terraform-workspace">Create Terraform workspace</a></h3>
+<p>TODO</p>
+<h3 id="create-cloudflare-api-token"><a class="header" href="#create-cloudflare-api-token">Create Cloudflare API token</a></h3>
+<p><a href="https://dash.cloudflare.com/profile/api-tokens">https://dash.cloudflare.com/profile/api-tokens</a></p>
+<p>Terraform API token summary:</p>
+<pre><code>This API token will affect the below accounts and zones, along with their respective permissions
+
+└── Khue Doan - Argo Tunnel:Edit, Account Settings:Read
+    └── khuedoan.com - Zone:Read, DNS:Edit
+
+Client IP Address Filtering
+
+└── Is in - 117.xxx.xxx.xxx, 2402:xxx:xxx:xxx:xxx:xxx:xxx:xxx
 </code></pre>
-<h2 id="gather-information"><a class="header" href="#gather-information">Gather information</a></h2>
-<ul>
-<li><input disabled="" type="checkbox"/>
-MAC address for each machine</li>
-<li><input disabled="" type="checkbox"/>
-OS disk name (for example <code>/dev/sda</code>)</li>
-<li><input disabled="" type="checkbox"/>
-Network interface name (for example <code>eth0</code>)</li>
-<li><input disabled="" type="checkbox"/>
-Choose a static IP address for each machine (just the desired address, we don't set anything up yet)</li>
-</ul>
+<h3 id="create-backblaze-api-key"><a class="header" href="#create-backblaze-api-key">Create Backblaze API key</a></h3>
+<p><a href="https://secure.backblaze.com/app_keys.htm">https://secure.backblaze.com/app_keys.htm</a></p>
+<pre><code>Name of Key: Homelab
+Allow access to Bucket(s): All
+Type of Access: Read and Write
+</code></pre>
+<h2 id="deploy"><a class="header" href="#deploy">Deploy</a></h2>
+<p>Export environment variables for API keys:</p>
+<pre><code class="language-sh">export CLOUDFLARE_API_TOKEN=xxx
+export B2_APPLICATION_KEY_ID=xxx
+export B2_APPLICATION_KEY=xxx
+</code></pre>
+<p>Apply Terraform:</p>
+<pre><code class="language-sh">make
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../deployment/provisioning_flow.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../deployment/dns.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../deployment/configuration.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../troubleshooting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -232,10 +228,10 @@ Choose a static IP address for each machine (just the desired address, we don't 
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../deployment/provisioning_flow.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../deployment/dns.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../deployment/configuration.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../troubleshooting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
