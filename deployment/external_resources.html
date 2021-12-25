@@ -166,20 +166,10 @@ Below is a list of external resources and why we need them.</p>
 </ul>
 </li>
 </ul>
-<p>This layer will deploy resources that require external dependencies using the following provisioners:</p>
-<ul>
-<li>Terraform:
+<p>This layer will:</p>
 <ul>
 <li>Create external resources</li>
 <li>Add external secrets to namespaces</li>
-<li>Create an ApplicationSet</li>
-</ul>
-</li>
-<li>ArgoCD (via the ApplicationSet created by Terraform):
-<ul>
-<li>Deploy Helm charts in the subdirectories</li>
-</ul>
-</li>
 </ul>
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
 <h3 id="create-terraform-workspace"><a class="header" href="#create-terraform-workspace">Create Terraform workspace</a></h3>
@@ -203,12 +193,7 @@ Allow access to Bucket(s): All
 Type of Access: Read and Write
 </code></pre>
 <h2 id="deploy"><a class="header" href="#deploy">Deploy</a></h2>
-<p>Export environment variables for API keys:</p>
-<pre><code class="language-sh">export CLOUDFLARE_API_TOKEN=xxx
-export B2_APPLICATION_KEY_ID=xxx
-export B2_APPLICATION_KEY=xxx
-</code></pre>
-<p>Apply Terraform:</p>
+<p>Apply Terraform (you will be prompted to login to Terraform Cloud and enter API keys from the previous steps):</p>
 <pre><code class="language-sh">make
 </code></pre>
 
