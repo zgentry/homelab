@@ -510,7 +510,14 @@ The Ansible set up in <code>./metal</code> is idempotent and will start the PXE 
 <li>Public services to the internet (via port forwarding or Cloudflare Tunnel)</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
+<blockquote>
 <p>Current status: <strong>Alpha</strong></p>
+</blockquote>
+<h2 id="alpha-requirements"><a class="header" href="#alpha-requirements">Alpha requirements</a></h2>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Literally anything that works</li>
+</ul>
 <h2 id="beta-requirements"><a class="header" href="#beta-requirements">Beta requirements</a></h2>
 <p>Good enough for playaround with and personal use</p>
 <ul>
@@ -528,8 +535,6 @@ Automated cluster creation (k3s)</li>
 <li><input disabled="" type="checkbox" checked=""/>
 Automated application deployment (ArgoCD)</li>
 <li><input disabled="" type="checkbox" checked=""/>
-Everything is defined as code</li>
-<li><input disabled="" type="checkbox"/>
 Basic services
 <ul>
 <li><input disabled="" type="checkbox" checked=""/>
@@ -537,43 +542,36 @@ Gitea</li>
 <li><input disabled="" type="checkbox" checked=""/>
 Tekton</li>
 <li><input disabled="" type="checkbox" checked=""/>
-Seafile</li>
-<li><input disabled="" type="checkbox"/>
-PeerTube,</li>
-<li><input disabled="" type="checkbox"/>
-Mail server</li>
-<li><input disabled="" type="checkbox"/>
-Mattermost</li>
-<li><input disabled="" type="checkbox"/>
-Matrix with bridges</li>
-<li><input disabled="" type="checkbox" checked=""/>
 Vault</li>
-<li><input disabled="" type="checkbox"/>
-VPN</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Private container registry</li>
 <li><input disabled="" type="checkbox" checked=""/>
 Homepage</li>
-<li><input disabled="" type="checkbox"/>
-<a href="https://github.com/khuedoan/homelab-backstage">Development dashboard</a></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Cloudflare tunnel <del>or multi-cluster communication (via Wireguard or a service mesh like Linkerd)</del></li>
+<li><input disabled="" type="checkbox" checked=""/>
+Automated DNS management</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Automated certificate management</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Initialize GitOps repository on Gitea automatically</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Observability
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Monitoring</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Logging</li>
 </ul>
 </li>
 <li><input disabled="" type="checkbox"/>
-Cloudflare tunnel or multi-cluster communication (via Wireguard or a service mesh like Linkerd)</li>
-<li><input disabled="" type="checkbox"/>
-Local DNS</li>
-<li><input disabled="" type="checkbox"/>
-Mirror all git repositories from GitHub automatically</li>
-<li><input disabled="" type="checkbox"/>
-Monitoring and alerting</li>
-<li><input disabled="" type="checkbox"/>
-Local container registry</li>
-<li><input disabled="" type="checkbox"/>
-SSO</li>
-<li><input disabled="" type="checkbox"/>
-Backup solution (3 copies, 2 seperate devices, 1 offsite)</li>
-<li><input disabled="" type="checkbox"/>
 70% availability (might break in the weekend due to new experimentation)</li>
 <li><input disabled="" type="checkbox" checked=""/>
-Only use open-source technologies</li>
+Only use open-source technologies (except external managed services in <code>./external</code>)</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Everything is defined as code</li>
 </ul>
 <h2 id="stable-requirements"><a class="header" href="#stable-requirements">Stable requirements</a></h2>
 <p>Can be used in &quot;production&quot; (for family or even small scale bussinesses)</p>
@@ -596,15 +594,52 @@ Self healing</li>
 </ul>
 </li>
 <li><input disabled="" type="checkbox"/>
+Additional services
+<ul>
+<li><input disabled="" type="checkbox"/>
+Matrix with bridges</li>
+<li><input disabled="" type="checkbox"/>
+VPN server</li>
+<li><input disabled="" type="checkbox"/>
+PeerTube</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Seafile</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Blog</li>
+<li><input disabled="" type="checkbox"/>
+<a href="https://github.com/khuedoan/homelab-backstage">Development dashboard</a></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Observability
+<ul>
+<li><input disabled="" type="checkbox"/>
+Alerting</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+SSO</li>
+<li><input disabled="" type="checkbox"/>
 99,9% availability (less than 9 hours of downtime per year)</li>
 <li><input disabled="" type="checkbox"/>
-Backup encrytion</li>
+Backup solution (3 copies, 2 seperate devices, 1 offsite) with encryption</li>
 <li><input disabled="" type="checkbox"/>
-Split DNS</li>
+Secure by default
+<ul>
 <li><input disabled="" type="checkbox"/>
-Secure by default</li>
+SELinux</li>
+<li><input disabled="" type="checkbox"/>
+Firewall</li>
+<li><input disabled="" type="checkbox"/>
+Network policy</li>
+<li><input disabled="" type="checkbox"/>
+Replace all default passwords with randomly generated ones</li>
+</ul>
+</li>
 <li><input disabled="" type="checkbox"/>
 Static code analysis</li>
+<li><input disabled="" type="checkbox"/>
+Chaos testing</li>
 <li><input disabled="" type="checkbox"/>
 Minimal dependency on external services</li>
 <li><input disabled="" type="checkbox"/>
@@ -621,7 +656,12 @@ Walkthrough building tutorial and feature demo (video)</li>
 <p>Nice to have</p>
 <ul>
 <li><input disabled="" type="checkbox"/>
-Addition services (TBD)</li>
+Addition services
+<ul>
+<li><input disabled="" type="checkbox"/>
+Mail server</li>
+</ul>
+</li>
 <li><input disabled="" type="checkbox"/>
 Air-gap install</li>
 <li><input disabled="" type="checkbox"/>
@@ -632,6 +672,8 @@ Security audit</li>
 Serverless (Knative)</li>
 <li><input disabled="" type="checkbox"/>
 Cluster API (https://github.com/khuedoan/homelab/pull/2)</li>
+<li><input disabled="" type="checkbox"/>
+Split DNS</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h3 id="gnu-general-public-license"><a class="header" href="#gnu-general-public-license">GNU GENERAL PUBLIC LICENSE</a></h3>
 <p>Version 3, 29 June 2007</p>
