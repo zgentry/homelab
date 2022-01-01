@@ -152,7 +152,7 @@
 <h2 id="build"><a class="header" href="#build">Build</a></h2>
 <p>Change the IP prefix in the Vagrant config to match your LAN setup, for example my IP prefix is <code>192.168.1.</code>:</p>
 <pre><code class="language-ruby"># metal/Vagrantfile
-ip_prefix = '192.168.1.'
+ip_prefix = '192.168.1.' # TODO see above
 </code></pre>
 <p>Follow the <strong>remaining steps in the <a href="./deployment/configuration.html">configuration guide</a></strong>, then create a test VM:</p>
 <pre><code class="language-sh">VAGRANT_CWD=./metal vagrant up

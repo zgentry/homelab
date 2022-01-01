@@ -153,7 +153,7 @@
 <h2 id="build"><a class="header" href="#build">Build</a></h2>
 <p>Change the IP prefix in the Vagrant config to match your LAN setup, for example my IP prefix is <code>192.168.1.</code>:</p>
 <pre><code class="language-ruby"># metal/Vagrantfile
-ip_prefix = '192.168.1.'
+ip_prefix = '192.168.1.' # TODO see above
 </code></pre>
 <p>Follow the <strong>remaining steps in the <a href="./deployment/configuration.html">configuration guide</a></strong>, then create a test VM:</p>
 <pre><code class="language-sh">VAGRANT_CWD=./metal vagrant up
@@ -291,7 +291,7 @@ Choose a static IP address for each machine (just the desired address, we don't 
 <p>Edit the following file and replace the MAC addresses with the one on your servers.
 The IP addresses are the desired ones, since your servers have no operating system installed yet.</p>
 <blockquote>
-<p>If you're trying it out on the dev VM, use <code>dev.ini</code> instead of <code>prod.ini</code></p>
+<p>Skip this step if you're trying out the dev VM</p>
 </blockquote>
 <pre><code class="language-ini">; metal/inventories/prod.ini
 [masters]
@@ -437,7 +437,7 @@ The Ansible set up in <code>./metal</code> is idempotent and will start the PXE 
 <div style="break-before: page; page-break-before: always;"></div><h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
 <p>Here is a list of the contributors who have helped improving my homelab. Big shout-out to them!</p>
 <ul>
-<li>None, you can be the first one ;)</li>
+<li>Loc Mai (<a href="https://github.com/locmai">@locmai</a>)</li>
 </ul>
 <p>If you feel you're missing from this list, feel free to add yourself in a PR.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changelog"><a class="header" href="#changelog">Changelog</a></h1>
