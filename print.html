@@ -153,7 +153,7 @@
 <h2 id="build"><a class="header" href="#build">Build</a></h2>
 <p>Change the IP prefix in the Vagrant config to match your LAN setup, for example my IP prefix is <code>192.168.1.</code>:</p>
 <pre><code class="language-ruby"># metal/Vagrantfile
-ip_prefix = '192.168.1.' # TODO see above
+group_vars = YAML.load_file(File.join(__dir__, './group_vars/all.yml'))
 </code></pre>
 <p>Follow the <strong>remaining steps in the <a href="./deployment/configuration.html">configuration guide</a></strong>, then create a test VM:</p>
 <pre><code class="language-sh">VAGRANT_CWD=./metal vagrant up
@@ -293,14 +293,15 @@ The IP addresses are the desired ones, since your servers have no operating syst
 <blockquote>
 <p>Skip this step if you're trying out the dev VM</p>
 </blockquote>
-<pre><code class="language-ini">; metal/inventories/prod.ini
-[masters]
-metal0 ansible_host=192.168.1.110 mac='00:23:24:d1:f3:f0'
-metal1 ansible_host=192.168.1.111 mac='00:23:24:d1:f4:d6'
-metal2 ansible_host=192.168.1.112 mac='00:23:24:e7:04:60'
-
-[workers]
-metal3 ansible_host=192.168.1.113 mac='00:23:24:d1:f5:69'
+<pre><code class="language-ini">; metal/inventories/prod.yml
+    masters:
+      hosts:
+        metal0: {ansible_host: 192.168.1.110, mac: 00:23:24:d1:f3:f0}
+        metal1: {ansible_host: 192.168.1.111, mac: 00:23:24:d1:f4:d6}
+        metal2: {ansible_host: 192.168.1.112, mac: 00:23:24:e7:04:60}
+    workers:
+      hosts:
+        metal3: {ansible_host: 192.168.1.113, mac: 00:23:24:d1:f5:69}
 </code></pre>
 <h2 id="server-hardware-info"><a class="header" href="#server-hardware-info">Server hardware info</a></h2>
 <blockquote>
