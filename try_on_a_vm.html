@@ -149,12 +149,9 @@
 <li><code>vagrant</code></li>
 <li><code>virtualbox</code></li>
 </ul>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>Follow the the steps in the <a href="./deployment/configuration.html">configuration guide</a>.</p>
 <h2 id="build"><a class="header" href="#build">Build</a></h2>
-<p>Change the IP prefix in the Vagrant config to match your LAN setup, for example my IP prefix is <code>192.168.1.</code>:</p>
-<pre><code class="language-ruby"># metal/Vagrantfile
-group_vars = YAML.load_file(File.join(__dir__, './group_vars/all.yml'))
-</code></pre>
-<p>Follow the <strong>remaining steps in the <a href="./deployment/configuration.html">configuration guide</a></strong>, then create a test VM:</p>
 <pre><code class="language-sh">VAGRANT_CWD=./metal vagrant up
 </code></pre>
 <p>Open the tools container:</p>
@@ -163,14 +160,14 @@ group_vars = YAML.load_file(File.join(__dir__, './group_vars/all.yml'))
 <p>Build a cluster on the test VM and bootstrap it:</p>
 <pre><code>make dev
 </code></pre>
-<p>Finally follow the <a href="./deployment/dns.html">DNS guide</a> to update your DNS setup (the easiest one is the nip.io option)</p>
+<p>Finally follow the <a href="./deployment/dns.html">DNS guide</a> to update your DNS setup.</p>
 <p>Now you can visit the dashboard at <a href="https://home.example.com">https://home.example.com</a></p>
 <h2 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h2>
 <p>Shut down the VM:</p>
 <pre><code class="language-sh">cd metal
-vagrant destroy -f
+vagrant destroy
 </code></pre>
-<p>Then clean up your router config or <code>/etc/hosts</code> file from the previous step</p>
+<p>Then clean up your DNS config from the previous step.</p>
 
                     </main>
 

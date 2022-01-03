@@ -150,12 +150,9 @@
 <li><code>vagrant</code></li>
 <li><code>virtualbox</code></li>
 </ul>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>Follow the the steps in the <a href="./deployment/configuration.html">configuration guide</a>.</p>
 <h2 id="build"><a class="header" href="#build">Build</a></h2>
-<p>Change the IP prefix in the Vagrant config to match your LAN setup, for example my IP prefix is <code>192.168.1.</code>:</p>
-<pre><code class="language-ruby"># metal/Vagrantfile
-group_vars = YAML.load_file(File.join(__dir__, './group_vars/all.yml'))
-</code></pre>
-<p>Follow the <strong>remaining steps in the <a href="./deployment/configuration.html">configuration guide</a></strong>, then create a test VM:</p>
 <pre><code class="language-sh">VAGRANT_CWD=./metal vagrant up
 </code></pre>
 <p>Open the tools container:</p>
@@ -164,14 +161,14 @@ group_vars = YAML.load_file(File.join(__dir__, './group_vars/all.yml'))
 <p>Build a cluster on the test VM and bootstrap it:</p>
 <pre><code>make dev
 </code></pre>
-<p>Finally follow the <a href="./deployment/dns.html">DNS guide</a> to update your DNS setup (the easiest one is the nip.io option)</p>
+<p>Finally follow the <a href="./deployment/dns.html">DNS guide</a> to update your DNS setup.</p>
 <p>Now you can visit the dashboard at <a href="https://home.example.com">https://home.example.com</a></p>
 <h2 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h2>
 <p>Shut down the VM:</p>
 <pre><code class="language-sh">cd metal
-vagrant destroy -f
+vagrant destroy
 </code></pre>
-<p>Then clean up your router config or <code>/etc/hosts</code> file from the previous step</p>
+<p>Then clean up your DNS config from the previous step.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="deployment"><a class="header" href="#deployment">Deployment</a></h1>
 <p>In this section you will learn how to:</p>
 <ul>
@@ -280,7 +277,7 @@ Network interface name (for example <code>eth0</code>)</li>
 <li><input disabled="" type="checkbox"/>
 Choose a static IP address for each machine (just the desired address, we don't set anything up yet)</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h1>
 <h2 id="fork-this-repository"><a class="header" href="#fork-this-repository">Fork this repository</a></h2>
 <p>Because this repository applies GitOps practices, this git repository is the source of truth for my homelab, so you'll need to folk it to make it yours.</p>
 <p>After forking it, clone and replace the reference to my repository with yours (without <code>https://</code>):</p>
@@ -291,7 +288,7 @@ Choose a static IP address for each machine (just the desired address, we don't 
 <p>Edit the following file and replace the MAC addresses with the one on your servers.
 The IP addresses are the desired ones, since your servers have no operating system installed yet.</p>
 <blockquote>
-<p>Skip this step if you're trying out the dev VM</p>
+<p>Use <code>dev.yml</code> instead of <code>prod.yml</code> if you're trying out the dev VM</p>
 </blockquote>
 <pre><code class="language-yaml"># metal/inventories/prod.yml
     masters:
