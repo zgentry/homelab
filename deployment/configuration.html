@@ -144,35 +144,26 @@
 <h2 id="fork-this-repository"><a class="header" href="#fork-this-repository">Fork this repository</a></h2>
 <p>Because this repository applies GitOps practices, this git repository is the source of truth for my homelab, so you'll need to folk it to make it yours.</p>
 <p>After forking it, clone and replace the reference to my repository with yours (without <code>https://</code>):</p>
-<pre><code class="language-sh">./scripts/replace-gitops-repo &quot;gitservicelikegithub.com/yourname/homelab&quot;
+<pre><code class="language-sh">./scripts/replace-gitops-repo &quot;github.com/yourname/homelab&quot;
 </code></pre>
 <p>Then commit and push the changes.</p>
-<h2 id="server-list"><a class="header" href="#server-list">Server list</a></h2>
-<p>Edit the following file and replace the MAC addresses with the one on your servers.
-The IP addresses are the desired ones, since your servers have no operating system installed yet.</p>
+<h2 id="server-list-and-hardware-info"><a class="header" href="#server-list-and-hardware-info">Server list and hardware info</a></h2>
+<p>Edit the following file and replace the hardware information with the one on your servers:</p>
 <blockquote>
 <p>Use <code>dev.yml</code> instead of <code>prod.yml</code> if you're trying out the dev VM</p>
 </blockquote>
 <pre><code class="language-yaml"># metal/inventories/prod.yml
     masters:
       hosts:
-        metal0: {ansible_host: 192.168.1.110, mac: '00:23:24:d1:f3:f0'}
-        metal1: {ansible_host: 192.168.1.111, mac: '00:23:24:d1:f4:d6'}
-        metal2: {ansible_host: 192.168.1.112, mac: '00:23:24:e7:04:60'}
+        metal0: {ansible_host: 192.168.1.110, mac: '00:23:24:d1:f3:f0', disk: sda, network_interface: eno1}
+        metal1: {ansible_host: 192.168.1.111, mac: '00:23:24:d1:f4:d6', disk: sda, network_interface: eno1}
+        metal2: {ansible_host: 192.168.1.112, mac: '00:23:24:e7:04:60', disk: sda, network_interface: eno1}
     workers:
       hosts:
-        metal3: {ansible_host: 192.168.1.113, mac: '00:23:24:d1:f5:69'}
-</code></pre>
-<h2 id="server-hardware-info"><a class="header" href="#server-hardware-info">Server hardware info</a></h2>
-<blockquote>
-<p>Skip this step if you're trying out the dev VM</p>
-</blockquote>
-<p>Change the following parameters based on your hardware.</p>
-<pre><code class="language-yaml"># metal/group_vars/all.yaml
-disk: &quot;sda&quot;
-network_interface: &quot;eno1&quot;
+        metal3: {ansible_host: 192.168.1.113, mac: '00:23:24:d1:f5:69', disk: sda, network_interface: eno1}
 </code></pre>
 <ul>
+<li>The IP addresses are the desired ones, not the current one, since your servers have no operating system installed yet.</li>
 <li>Disk: based on <code>/dev/$DISK</code>, in my case it's <code>sda</code>, but yours can be <code>sdb</code>, <code>nvme0n1</code>...</li>
 <li>Network interface: usually it's <code>eth0</code>, mine is <code>eno1</code></li>
 </ul>
