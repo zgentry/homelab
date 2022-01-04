@@ -181,7 +181,7 @@ Homepage</li>
 </ul>
 </li>
 <li><input disabled="" type="checkbox" checked=""/>
-Cloudflare tunnel <del>or multi-cluster communication (via Wireguard or a service mesh like Linkerd)</del></li>
+Cloudflare tunnel</li>
 <li><input disabled="" type="checkbox" checked=""/>
 Automated DNS management</li>
 <li><input disabled="" type="checkbox" checked=""/>
@@ -195,8 +195,12 @@ Observability
 Monitoring</li>
 <li><input disabled="" type="checkbox" checked=""/>
 Logging</li>
+<li><input disabled="" type="checkbox"/>
+Alerting</li>
 </ul>
 </li>
+<li><input disabled="" type="checkbox"/>
+Replace all default passwords with randomly generated ones</li>
 <li><input disabled="" type="checkbox"/>
 70% availability (might break in the weekend due to new experimentation)</li>
 <li><input disabled="" type="checkbox" checked=""/>
@@ -242,29 +246,20 @@ Blog</li>
 </ul>
 </li>
 <li><input disabled="" type="checkbox"/>
-Observability
-<ul>
-<li><input disabled="" type="checkbox"/>
-Alerting</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"/>
 SSO</li>
 <li><input disabled="" type="checkbox"/>
-99,9% availability (less than 9 hours of downtime per year)</li>
-<li><input disabled="" type="checkbox"/>
 Backup solution (3 copies, 2 seperate devices, 1 offsite) with encryption</li>
+<li><input disabled="" type="checkbox"/>
+99,9% availability (less than 9 hours of downtime per year)</li>
+<li><input disabled="" type="checkbox" checked=""/>
+99,99% data durability</li>
 <li><input disabled="" type="checkbox"/>
 Secure by default
 <ul>
 <li><input disabled="" type="checkbox"/>
 SELinux</li>
 <li><input disabled="" type="checkbox"/>
-Firewall</li>
-<li><input disabled="" type="checkbox"/>
 Network policy</li>
-<li><input disabled="" type="checkbox"/>
-Replace all default passwords with randomly generated ones</li>
 </ul>
 </li>
 <li><input disabled="" type="checkbox"/>
@@ -282,6 +277,8 @@ Book (this book)</li>
 Walkthrough building tutorial and feature demo (video)</li>
 </ul>
 </li>
+<li><input disabled="" type="checkbox"/>
+Configuration script for new users</li>
 </ul>
 <h2 id="unplanned"><a class="header" href="#unplanned">Unplanned</a></h2>
 <p>Nice to have</p>
@@ -304,7 +301,7 @@ Serverless (Knative)</li>
 <li><input disabled="" type="checkbox"/>
 Cluster API (https://github.com/khuedoan/homelab/pull/2)</li>
 <li><input disabled="" type="checkbox"/>
-Split DNS</li>
+Split DNS (requires a better router)</li>
 </ul>
 
                     </main>
