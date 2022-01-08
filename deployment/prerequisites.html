@@ -178,31 +178,32 @@
 usually for consumer hardware this can not be automated
 (it requires something like <a href="https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface">IPMI</a> to automate).</p>
 </blockquote>
-<p>Below is my BIOS setup, your motherboard may have a different name for the options, so you'll need to adapt it with your hardware.</p>
-<pre><code class="language-json">{
-    &quot;Devices&quot;: {
-        &quot;Network Setup&quot;: {
-            &quot;PXE IPv4&quot;: true,
-            &quot;PXE IPv6&quot;: false
-        }
-    },
-    &quot;Advanced&quot;: {
-        &quot;CPU Setup&quot;: {
-            &quot;VT-d&quot;: true
-        }
-    },
-    &quot;Power&quot;: {
-        &quot;Automatic Power On&quot;: {
-            &quot;WoL&quot;: &quot;Automatic&quot;
-        }
-    },
-    &quot;Security&quot;: {
-        &quot;Secure Boot&quot;: false
-    },
-    &quot;Startup&quot;: {
-        &quot;CSM&quot;: false
-    }
-}
+<p>Common settings:</p>
+<ul>
+<li>Enable Wake-on-LAN (WoL) and network boot</li>
+<li>Use UEFI mode and disable CSM (legacy) mode</li>
+<li>Disable secure boot</li>
+</ul>
+<p>Boot order options (select one, each has their pros and cons):</p>
+<ol>
+<li>Only boot from the network if no operating system found: works on most hardware but you need to manually wipe your hard drive or delete the existing boot record for the current OS</li>
+<li>Prefer booting from the network if turned on via WoL: more convenience but your BIOS must support it, and you must test it throughly to ensure you don't accidentally wipe your servers</li>
+</ol>
+<p>Below is my BIOS setup for reference. Your motherboard may have a different name for the options, so you'll need to adapt it to your hardware.</p>
+<pre><code class="language-yaml">Devices:
+  NetworkSetup:
+    PXEIPv4: true
+    PXEIPv6: false
+Advanced:
+  CPUSetup:
+    VT-d: true
+Power:
+  AutomaticPowerOn:
+    WoL: Automatic  # Use network boot if Wake-on-LAN
+Security:
+  SecureBoot: false
+Startup:
+  CSM: false
 </code></pre>
 <h2 id="gather-information"><a class="header" href="#gather-information">Gather information</a></h2>
 <ul>
