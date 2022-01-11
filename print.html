@@ -139,7 +139,16 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>This is my homelab set up, it focused on automation to simplify provisioning, upgrading, and operating self-hosted services.</p>
+<p><a href="https://matrix.to/#/#homelab:matrix.khuedoan.com"><img src="https://img.shields.io/matrix/homelab:matrix.khuedoan.com?style=flat-square&amp;logo=matrix&amp;logoColor=white&amp;label=chat" alt="chat" /></a>
+<a href="https://github.com/khuedoan/homelab/tags"><img src="https://img.shields.io/github/v/tag/khuedoan/homelab?style=flat-square&amp;logo=semver&amp;logoColor=white" alt="tag" /></a>
+<a href="https://homelab.khuedoan.com"><img src="https://img.shields.io/website?label=document&amp;logo=gitbook&amp;logoColor=white&amp;style=flat-square&amp;url=https%3A%2F%2Fhomelab.khuedoan.com" alt="document" /></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0.html"><img src="https://img.shields.io/github/license/khuedoan/homelab?style=flat-square&amp;logo=gnu&amp;logoColor=white" alt="license" /></a>
+<a href="https://github.com/khuedoan/homelab"><img src="https://img.shields.io/github/stars/khuedoan/homelab?logo=github&amp;logoColor=white&amp;color=gold&amp;style=flat-square" alt="stars" /></a></p>
+<p>This project utilizes <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as Code</a> to automate provisioning, operating, and updating self-hosted services in my homelab.
+It can be used as a highly customizable framework to build your own homelab.</p>
+<p>Feel free to join me on my Matrix chat server at <a href="https://chat.khuedoan.com/#/room/#homelab/general:matrix.khuedoan.com">chat.khuedoan.com</a>,
+or <a href="https://matrix.to/#/#homelab:matrix.khuedoan.com"><code>#homelab:matrix.khuedoan.com</code></a> if you already have a Matrix client.
+Please note that the chat server is self-hosted on my homelab and still at the experimental stage.</p>
 <p>Continue to the next section to try on a VM, or skip to the deployment guide to deploy on real hardware.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="try-on-a-vm"><a class="header" href="#try-on-a-vm">Try on a VM</a></h1>
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
@@ -522,17 +531,28 @@ The Ansible set up in <code>./metal</code> is idempotent and will start the PXE 
 Literally anything that works</li>
 </ul>
 <h2 id="beta-requirements"><a class="header" href="#beta-requirements">Beta requirements</a></h2>
-<p>Good enough for playaround with and personal use</p>
+<ul>
+<li>
+<p>Automated bare metal provisioning</p>
 <ul>
 <li><input disabled="" type="checkbox" checked=""/>
-Automated bare metal provisioning
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-Controller set up (Docker)</li>
+All in one tools container</li>
 <li><input disabled="" type="checkbox" checked=""/>
 OS installation (PXE boot)</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Kubernetes (k3s) installation</li>
 </ul>
 </li>
+<li><input disabled="" type="checkbox" checked=""/>
+<p>Orchestration and Management</p>
+</li>
+</ul>
+<h3 id="runtime"><a class="header" href="#runtime">Runtime</a></h3>
+<h3 id="observability-and-analysis"><a class="header" href="#observability-and-analysis">Observability and Analysis</a></h3>
+<h3 id="platform"><a class="header" href="#platform">Platform</a></h3>
+<h3 id="app-definition-and-development"><a class="header" href="#app-definition-and-development">App Definition and Development</a></h3>
+<p>Good enough for playaround with and personal use</p>
+<ul>
 <li><input disabled="" type="checkbox" checked=""/>
 Automated cluster creation (k3s)</li>
 <li><input disabled="" type="checkbox" checked=""/>
