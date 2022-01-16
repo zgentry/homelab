@@ -289,15 +289,26 @@ Choose a static IP address for each machine (just the desired address, we don't 
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h1>
 <h2 id="fork-this-repository"><a class="header" href="#fork-this-repository">Fork this repository</a></h2>
-<p>Because this repository applies GitOps practices, this git repository is the source of truth for my homelab, so you'll need to folk it to make it yours.</p>
-<p>After forking it, clone and replace the reference to my repository with yours (without <code>https://</code>):</p>
-<pre><code class="language-sh">./scripts/replace-gitops-repo &quot;github.com/yourname/homelab&quot;
+<p>Because this repository (<a href="https://github.com/khuedoan/homelab">khuedoan/homelab</a>) applies GitOps practices,
+it's the source of truth for my homelab, so you'll need to folk it to make it yours.</p>
+<h2 id="run-the-configure-script"><a class="header" href="#run-the-configure-script">Run the configure script</a></h2>
+<p>Run the following script to configure the homelab:</p>
+<pre><code class="language-sh">./configure.py
 </code></pre>
-<p>Then commit and push the changes.</p>
-<h2 id="server-list-and-hardware-info"><a class="header" href="#server-list-and-hardware-info">Server list and hardware info</a></h2>
-<p>Edit the following file and replace the hardware information with the one on your servers:</p>
+<p>Example input:</p>
+<!-- TODO update example input -->
+<pre><code>$ ./configure.py
+Text editor (nvim):
+Enter seed repo (github.com/khuedoan/homelab): github.com/example/homelab
+Enter your domain (khuedoan.com): example.com
+</code></pre>
+<p>It will prompt you to edit the inventory, for example:</p>
 <blockquote>
-<p>Use <code>dev.yml</code> instead of <code>prod.yml</code> if you're trying out the dev VM</p>
+<ul>
+<li>The IP addresses are the desired ones, not the current one, since your servers have no operating system installed yet.</li>
+<li>Disk: based on <code>/dev/$DISK</code>, in my case it's <code>sda</code>, but yours can be <code>sdb</code>, <code>nvme0n1</code>...</li>
+<li>Network interface: usually it's <code>eth0</code>, mine is <code>eno1</code></li>
+</ul>
 </blockquote>
 <pre><code class="language-yaml"># metal/inventories/prod.yml
     masters:
@@ -309,19 +320,7 @@ Choose a static IP address for each machine (just the desired address, we don't 
       hosts:
         metal3: {ansible_host: 192.168.1.113, mac: '00:23:24:d1:f5:69', disk: sda, network_interface: eno1}
 </code></pre>
-<ul>
-<li>The IP addresses are the desired ones, not the current one, since your servers have no operating system installed yet.</li>
-<li>Disk: based on <code>/dev/$DISK</code>, in my case it's <code>sda</code>, but yours can be <code>sdb</code>, <code>nvme0n1</code>...</li>
-<li>Network interface: usually it's <code>eth0</code>, mine is <code>eno1</code></li>
-</ul>
-<h2 id="update-ingresses-to-point-to-your-domain"><a class="header" href="#update-ingresses-to-point-to-your-domain">Update Ingresses to point to your domain</a></h2>
-<blockquote>
-<p>Use <a href="https://datatracker.ietf.org/doc/html/rfc8375"><code>home.arpa</code></a> if you don't have a domain</p>
-</blockquote>
-<p>My domain is <code>khuedoan.com</code>, run the following command to replace it with yours:</p>
-<pre><code class="language-sh">./scripts/replace-domain &quot;yourdomain.com&quot;
-</code></pre>
-<p>Commit and push the changes.</p>
+<p>At the end it will show what has changed. After examining the diff, commit and push the changes.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="deploy-the-homelab"><a class="header" href="#deploy-the-homelab">Deploy the homelab</a></h1>
 <blockquote>
 <p>It will take a while to build the tools container and download Rocky Linux ISO on the first time</p>
