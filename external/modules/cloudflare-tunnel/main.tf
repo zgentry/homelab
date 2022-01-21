@@ -3,9 +3,9 @@ resource "random_password" "tunnel_secret" {
   special = false
 }
 
-resource "cloudflare_argo_tunnel" "homelab" {
+resource "cloudflare_argo_tunnel" "tunnel" {
   account_id = var.cloudflare_account_id
-  name       = "homelab"
+  name       = var.name
   secret     = base64encode(random_password.tunnel_secret.result)
 }
 
@@ -13,8 +13,8 @@ resource "cloudflare_argo_tunnel" "homelab" {
 resource "cloudflare_record" "tunnel" {
   zone_id = data.cloudflare_zone.khuedoan_com.id
   type    = "CNAME"
-  name    = "homelab-tunnel"
-  value   = "${cloudflare_argo_tunnel.homelab.id}.cfargotunnel.com"
+  name    = var.dns_record
+  value   = "${cloudflare_argo_tunnel.tunnel.id}.cfargotunnel.com"
   proxied = false
   ttl     = 1 # Auto
 }
@@ -28,8 +28,8 @@ resource "kubernetes_secret" "cloudflared_credentials" {
   data = {
     "credentials.json" = jsonencode({
       AccountTag   = var.cloudflare_account_id
-      TunnelName   = cloudflare_argo_tunnel.homelab.name
-      TunnelID     = cloudflare_argo_tunnel.homelab.id
+      TunnelName   = cloudflare_argo_tunnel.tunnel.name
+      TunnelID     = cloudflare_argo_tunnel.tunnel.id
       TunnelSecret = base64encode(random_password.tunnel_secret.result)
     })
   }

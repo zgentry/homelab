@@ -1,3 +1,21 @@
+# TODO separate module
+data "cloudflare_api_token_permission_groups" "all" {}
+
+data "http" "public_ipv4" {
+  url = "https://ipv4.icanhazip.com"
+}
+
+# data "http" "public_ipv6" {
+#   url = "https://ipv6.icanhazip.com"
+# }
+
+locals {
+  public_ips = [
+    "${chomp(data.http.public_ipv4.body)}/32",
+    # "${chomp(data.http.public_ipv6.body)}/128"
+  ]
+}
+
 resource "cloudflare_api_token" "external_dns" {
   name = "homelab_external_dns"
 
@@ -28,4 +46,3 @@ resource "kubernetes_secret" "external_dns_token" {
     "value" = cloudflare_api_token.external_dns.value
   }
 }
-
