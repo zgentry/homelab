@@ -1,5 +1,5 @@
 terraform {
-  source = "../../modules/cloudflare-tunnel"
+  source = "../..//modules/cloudflare-tunnel"
 }
 
 inputs = {

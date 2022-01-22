@@ -1,5 +1,5 @@
 terraform {
-  source = "../../modules/cert-manager"
+  source = "../..//modules/cert-manager"
 }
 
 inputs = {

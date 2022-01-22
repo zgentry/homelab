@@ -1,5 +1,5 @@
 terraform {
-  source = "../../modules/velero"
+  source = "../..//modules/velero"
 }
 
 inputs = {
