@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Deploy the homelab - Khue&#x27;s Homelab</title>
+        <title>Single node cluster adjustments - Khue&#x27;s Homelab</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../try_on_a_vm.html"><strong aria-hidden="true">2.</strong> Try on a VM</a></li><li class="chapter-item expanded "><a href="../deployment/index.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../deployment/provisioning_flow.html"><strong aria-hidden="true">3.1.</strong> Provisioning flow</a></li><li class="chapter-item expanded "><a href="../deployment/prerequisites.html"><strong aria-hidden="true">3.2.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="../deployment/configuration.html"><strong aria-hidden="true">3.3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="../deployment/deployment.html" class="active"><strong aria-hidden="true">3.4.</strong> Deploy the homelab</a></li><li class="chapter-item expanded "><a href="../deployment/dns.html"><strong aria-hidden="true">3.5.</strong> DNS setup</a></li><li class="chapter-item expanded "><a href="../deployment/external_resources.html"><strong aria-hidden="true">3.6.</strong> External resources (optional)</a></li></ol></li><li class="chapter-item expanded "><a href="../troubleshooting.html"><strong aria-hidden="true">4.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Tutorials</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tutorials/single_node_cluster_adjustments.html"><strong aria-hidden="true">5.1.</strong> Single node cluster adjustments</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> Add or remove nodes (scale up or down)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> Install new applications</div></li></ol></li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">6.</strong> Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> Architecture</div></li><li class="chapter-item expanded "><a href="../reference/faq.html"><strong aria-hidden="true">6.2.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="../reference/contributors.html"><strong aria-hidden="true">6.3.</strong> Contributors</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../changelog.html"><strong aria-hidden="true">7.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="../roadmap.html"><strong aria-hidden="true">8.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="../license.html"><strong aria-hidden="true">9.</strong> License</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../try_on_a_vm.html"><strong aria-hidden="true">2.</strong> Try on a VM</a></li><li class="chapter-item expanded "><a href="../deployment/index.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../deployment/provisioning_flow.html"><strong aria-hidden="true">3.1.</strong> Provisioning flow</a></li><li class="chapter-item expanded "><a href="../deployment/prerequisites.html"><strong aria-hidden="true">3.2.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="../deployment/configuration.html"><strong aria-hidden="true">3.3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="../deployment/deployment.html"><strong aria-hidden="true">3.4.</strong> Deploy the homelab</a></li><li class="chapter-item expanded "><a href="../deployment/dns.html"><strong aria-hidden="true">3.5.</strong> DNS setup</a></li><li class="chapter-item expanded "><a href="../deployment/external_resources.html"><strong aria-hidden="true">3.6.</strong> External resources (optional)</a></li></ol></li><li class="chapter-item expanded "><a href="../troubleshooting.html"><strong aria-hidden="true">4.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Tutorials</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tutorials/single_node_cluster_adjustments.html" class="active"><strong aria-hidden="true">5.1.</strong> Single node cluster adjustments</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> Add or remove nodes (scale up or down)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> Install new applications</div></li></ol></li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">6.</strong> Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> Architecture</div></li><li class="chapter-item expanded "><a href="../reference/faq.html"><strong aria-hidden="true">6.2.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="../reference/contributors.html"><strong aria-hidden="true">6.3.</strong> Contributors</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../changelog.html"><strong aria-hidden="true">7.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="../roadmap.html"><strong aria-hidden="true">8.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="../license.html"><strong aria-hidden="true">9.</strong> License</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -113,7 +113,7 @@
                         <a href="https://github.com/khuedoan/homelab" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/khuedoan/homelab/edit/master/docs/src/deployment/deployment.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/khuedoan/homelab/edit/master/docs/src/tutorials/single_node_cluster_adjustments.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
                     </div>
@@ -140,29 +140,33 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="deploy-the-homelab"><a class="header" href="#deploy-the-homelab">Deploy the homelab</a></h1>
-<blockquote>
-<p>It will take a while to build the tools container and download Rocky Linux ISO on the first time</p>
-</blockquote>
-<p>Open the tools container, which includes all the tools needed:</p>
-<pre><code class="language-sh">make tools
+                        <h1 id="single-node-cluster-adjustments"><a class="header" href="#single-node-cluster-adjustments">Single node cluster adjustments</a></h1>
+<p>Update the following changes, then commit and push.</p>
+<h2 id="reduce-longhorn-replica-count"><a class="header" href="#reduce-longhorn-replica-count">Reduce Longhorn replica count</a></h2>
+<p>Set the <code>defaultClassReplicaCount</code> to 1:</p>
+<pre><code class="language-yaml"># system/longhorn-system/values.yaml
+longhorn:
+  defaultSettings:
+    nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+  persistence:
+    # If you have three or more nodes for storage, use 3; otherwise use 2
+    defaultClassReplicaCount: 2  # TODO run DR test to see if we actually need 3
 </code></pre>
-<p>Build the lab:</p>
-<pre><code class="language-sh">make
+<h2 id="disable-automated-system-upgrade"><a class="header" href="#disable-automated-system-upgrade">Disable automated system upgrade</a></h2>
+<p>Because the system upgrade controller will try to drain the node,
+the pods will have no place to go on a single node set up.</p>
+<p>Remove the system upgrade controller entirely:</p>
+<pre><code class="language-sh">rm -rf system/system-upgrade
 </code></pre>
-<p>Yes it's that simple! Check the status using the following command:</p>
-<pre><code class="language-sh">watch ./scripts/get-status
-</code></pre>
-<p>While waiting for all services to become healthy, continue to the next section to update your DNS.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../deployment/configuration.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../troubleshooting.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../deployment/dns.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../reference/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -171,10 +175,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../deployment/configuration.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../troubleshooting.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../deployment/dns.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../reference/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
