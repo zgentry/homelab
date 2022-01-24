@@ -149,6 +149,14 @@
 <li><code>vagrant</code></li>
 <li><code>virtualbox</code></li>
 </ul>
+<p>VM specifications:</p>
+<pre><code class="language-ruby"># metal/Vagrantfile
+# TODO This is ridiculous for a local development environment.
+# After multi-env is supported, optimize it.
+cpus = 4
+memory = &quot;10240&quot;
+disk_size = &quot;256GB&quot;
+</code></pre>
 <h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
 <p>Follow the the steps in the <a href="./deployment/configuration.html">configuration guide</a>.</p>
 <h2 id="build"><a class="header" href="#build">Build</a></h2>
