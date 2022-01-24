@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: &host registry.khuedoan.com
+  - host: &host registry.home.arpa
     http:
       paths:
       - pathType: ImplementationSpecific
